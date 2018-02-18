@@ -1,0 +1,80 @@
+Name: Cameron Padua
+Class: CSS390
+Assignment 4: Website Monitoring
+
+Things to Note:
+Many of the scripts have default values that will allow to run the scripts
+to run in most cases. It should be noted that all of those values can be 
+changed by using the optional command line arguement options.
+
+Plot.py is dependant on Plot.plt. It also needs GNUplot to be installed 
+on the computer running it to work properly.
+http://www.gnuplot.info/
+
+Trafficgen.py will run forever, there are no options to make it run more 
+a timed span.
+
+Program was tested on Python 2.7
+
+
+Traffic Generator. This script is meant to generate traffic to
+a server at a port of the users choosing. It is mean to simulate traffic to
+a website. In this simulation, it can generate 200s, 500s, and 404 errors.
+At the very least, this program can generate 500 requests per second.
+
+usage: trafficgen.py [-h] [--url URL] [--rps RPS] [--jitter JITTER]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL, -u URL     The URL that you want to hit. Default =
+                        http://localhost:8080
+  --rps RPS, -r RPS     The rate you want to hit the URL. Default = 500
+  --jitter JITTER, -j JITTER
+                        Floating-point number in the range of [0..1]
+                        representing the shakiness of the rate. Default = .02
+
+
+
+Collector. This script to used to scrape the server for the
+current count of 200s, 500s, and 404 errors. After pulling this data it will
+store these values in a TSV file call collected. The user has the option to
+change the interval at which data is collected, the URL to collect from,
+and the number of times to repeat the interval.
+
+usage: collector.py [-h] [--url URL] [--interval INTERVAL] [--repeat REPEAT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --url URL, -u URL     The URL that you want to collect from. Default =
+                        http://localhost:8080
+  --interval INTERVAL, -i INTERVAL
+                        The interval you want to collect data at in seconds.
+                        Default = 10 seconds
+  --repeat REPEAT, -r REPEAT
+                        The number of times you want to repeat the interval.
+                        Default = -1 (forever)
+
+
+
+
+Plot. This script is used to create a graph of the collected
+data. This program will only create a graph for 1 minute intervals
+
+usage: plot.py [-h] [--file FILE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --file FILE, -f FILE  The file to read the data from. Default =
+                        collected.tsv
+
+Sources:
+https://docs.python.org/2/library/urllib2.html
+https://stackoverflow.com/questions/3217673/why-use-argparse-rather-than-optparse
+https://docs.python.org/dev/library/argparse.html#action
+http://blog.mague.com/?p=201
+https://stackoverflow.com/questions/8077099/short-guide-how-to-use-gnuplot-with-python
+http://www.pythonforbeginners.com/dictionary/python-split
+https://stackoverflow.com/questions/664294/is-it-possible-only-to-declare-a-variable-without-assigning-any-value-in-python
+https://stackoverflow.com/questions/574730/python-how-to-ignore-an-exception-and-proceed
+https://docs.python.org/2/library/subprocess.html#subprocess.PIPE
+

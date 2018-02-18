@@ -1,0 +1,20 @@
+Name:           Cameron Padua
+Class:          CSS390
+Assignment:     Finite State Machine Generator
+Description:    This script is used to generate C++ code using python. The
+                user must provide all the edges, header, footer, and states
+                to create a python file to run. After created, user can run
+		program to get the C++ code equivelent
+
+Notes:
+
+Tested in Python 2.7
+Spacing may be slightly off.
+User can redirect output from terminal to file using file direction
+
+
+
+
+
+Sources:
+Morris Bernstein 

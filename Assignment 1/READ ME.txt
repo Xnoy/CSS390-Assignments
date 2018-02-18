@@ -1,0 +1,16 @@
+This assignment is meant to show the power of the unix commands. While by themselves, they can accomplish basic task, together they can form a very fast and effective
+tool for getting a job done quickly. By using pipes information between these commands can be shared allowing for a 100 line C++ program to become less than 10. 
+
+If you plan to view the shell code, I would recommend open it on a Linux enviroment as it will not format properly on Windows.
+
+To run this shell script, you will need to provide the path to the Music folder
+
+For example, if the Music folder is in the same folder as the shell script then use the following command: ./assignment1 ./Music
+
+This however does not mean that the script needs to be in the same folder as the Music folder. 
+You could have the Music folder in the parent 
+of the current directory and access that file by using the following command ./assignment1.sh ../Music 
+
+
+It should also be noted that standard output can be redirected to a file if the user wishes to. This can be done by using the command ./assignment1.sh ../Music 
+> foo.txt
