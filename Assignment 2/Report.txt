@@ -1,0 +1,124 @@
+#Author: Cameron Padua
+#Class: CSS390
+#Professor: Morris Bernstein
+#Assignment #1: File Management Part 2
+#Date: 10/22/17
+
+
+Note: 	<path> is not literal, you place the path to the location of each item/directory
+Note 2: This report assumes that you are in the current directory of the scripts for all command 		examples.
+Note 3: Remember to add executability priveleges to the scripts
+
+
+Part 1; Report Generation
+
+This shell program is used to convert a directory structure music tree into a HTML file sorted by Artists and Albums. 
+
+To use the script, you can either place the script inside the Music folder with the genre folders and run the following script:
+
+./reportgen
+
+Alternatively, you can provide the the path to the Music folder after calling the script. That would look something like this
+
+./reportgen.sh <path>/Music/
+
+Because this program prints the output to the standard output, you can also redirect it to a html file by doing either of following commands depending where the script file is located.
+
+./reportgen.sh > test.html
+./reportgen.sh <path>/Music/ > test.html
+
+
+Part 2: Duplicate Dectection
+
+This shell program is meant to check all files in a directory for duplicates of the same file. It accompished this by comparing bytes using the cmp command. You can use this in one of two ways. The first is by placing the script in the directory you wish and using the following script
+
+./dupdetec.sh
+
+Alternativly, you can provide the script a directory to search using the following command
+
+./dupdetech.sh  <path>/targetDirectory
+
+Please note that this is a sample format.
+
+It should also be noted that the program will scan subdirectories as well. 
+
+Part 3: Testing and Performance Analysis
+
+This part of the assignment uses two seperate scripts to accompish file creation and data collection of time to pair count. It should be noted that this part of the assignment uses the dupdetec.sh from part 2.
+
+The first script is filecreate.sh. This program is responsible for creating x amount of files. This allows me to create x amount of files for the time.sh script. Per the assignment instructions, it can produce 1000 1mb files by passing the script an integer for the amount of files to create. To create 1000 files, you should use the following command
+
+./filecreate.sh 1000
+
+This program will assume to make all files in the the current directory of the shell program. However, you can specify a location to create the files by using the following command
+
+./filecreate.sh 1000 <path>/Location
+Please note that Location should be a directory of your choosing. It must be a pre-existing directory, meaning it will not create the folder.
+
+
+For the second script, time.sh, it will measure how long it take to do pair wise comparison for 50 to 1000 files. 
+
+Please note that the dupdetec.sh and filecreate.sh scripts need to be in the same directory as the time.sh script for the program to work.
+
+To use this script, type the following command:
+
+./time.sh
+
+It should be noted that this script will create a temporary folder that it stores all the files it creates. At the end of the program, it will delete this folder.
+In addition, if this program is run multiple times, it will append all new data to the end of the existing file.
+Lastly, if the temp directory already exists, the script will cause an error
+
+It should be also noted that if the script does not end as normal operating procedure, the temp files will exist.
+
+Results:
+50	0:00.85
+100	0:04.90
+150	0:11.59
+200	0:26.73
+250	0:52.00
+300	1:25.73
+350	2:08.35
+400	2:46.65
+450	3:41.53
+500	4:37.08
+550	5:41.45
+600	6:54.23
+650	8:09.74
+700	9:32.27
+750	10:59.46
+800	12:34.91
+850	14:10.86
+900	15:55.53
+950	17:53.60
+1000	20:07.28
+
+Results 2:
+50	0:00.94
+100	0:03.94
+150	0:11.39
+200	0:21.14
+250	0:40.16
+300	1:05.88
+350	1:15.78
+400	1:26.88
+450	1:30.63
+500	1:36.94
+600	6:50.17
+650	8:07.96
+700	9:33.42
+750	11:03.75
+800	12:34.76
+850	14:17.94
+900	16:05.37
+950	17:54.34
+1000	19:52.03
+
+
+sources:
+https://www.computerhope.com/unix/dd.htm
+http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html
+http://www.thegeekstuff.com/2010/06/bash-array-tutorial
+https://stackoverflow.com/questions/30988586/creating-an-array-from-a-text-file-in-bash
+https://www.unix.com/shell-programming-and-scripting/26389-creating-file-1mb-using-shell-command.html
+https://superuser.com/questions/355702/bash-script-rename-all-files-below-a-directory
+and most likely a few other stackoverflow post for assorted small bits to combine into one
